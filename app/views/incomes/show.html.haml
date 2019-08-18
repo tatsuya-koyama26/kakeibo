@@ -1,5 +1,4 @@
 %h2 収入科目の詳細
-= link_to "編集", edit_income_path
 = link_to "収入科目一覧に戻る", incomes_path
 %table
   %tr
@@ -9,6 +8,7 @@
       = @income.name
   %tr
     %th
-      = 備考
+      備考
     %td
       = @income.description
+= link_to "編集", edit_income_path
