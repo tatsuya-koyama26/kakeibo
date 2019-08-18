@@ -18,13 +18,20 @@ class IncomesController < ApplicationController
   def create
     @income = Income.new(incomes_params)
     if @income.save
-			redirect_to @income, notice: "収入科目を登録しました"
-		else
-			render "new"
-		end
+      redirect_to @income, notice: "収入科目を登録しました"
+    else
+      render "new"
+    end
   end
 
   def update
+    @income = Income.find(params[:id])
+    @income.update(incomes_params)
+    if @income.save
+      redirect_to @income, notice: "収入科目を編集しました"
+    else
+      render "new"
+    end
   end
 
   def destroy
