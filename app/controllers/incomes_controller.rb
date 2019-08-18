@@ -3,13 +3,16 @@ class IncomesController < ApplicationController
     @incomes = Income.order("created_at ASC")
 	end
  
-	def show
+  def show
+    @income = Income.find(params[:id])
 	end
  
-	def new
+  def new
+    @income = Income.new()
 	end
  
-	def edit
+  def edit
+    @income = Income.find(params[:id])
 	end
  
 	def create
