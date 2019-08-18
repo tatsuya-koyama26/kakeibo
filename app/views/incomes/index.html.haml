@@ -1,0 +1,20 @@
+%h2 収入科目一覧
+
+- if @incomes.present?
+  %table
+    %thead
+      %tr
+        %th
+          科目名
+        %th
+          備考
+    %tbody
+      = @incomes.each do |income|
+        %tr
+          %td 
+            = income.name
+          %td
+            = income.description
+- else
+  %p
+    登録されている収入科目がありません
