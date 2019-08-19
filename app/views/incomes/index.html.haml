@@ -1,5 +1,6 @@
 %h2 収入科目一覧
 
+= link_to "新規登録", new_income_path
 - if @incomes.present?
   %table
     %thead
@@ -8,13 +9,21 @@
           科目名
         %th
           備考
+        %th
+          編集
+        %th
+          削除
     %tbody
-      = @incomes.each do |income|
+      - @incomes.each do |income|
         %tr
           %td 
             = income.name
           %td
             = income.description
+          %td
+            = link_to "編集", edit_income_path(income)
+          %td
+            = link_to "削除", income, method: :delete, data: { confirm: "本当に削除しますか？"}
 - else
   %p
     登録されている収入科目がありません

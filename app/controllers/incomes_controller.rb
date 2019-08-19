@@ -35,6 +35,9 @@ class IncomesController < ApplicationController
   end
 
   def destroy
+    @income = Income.find(params[:id])
+    @income.destroy
+    redirect_to :incomes, notice: "科目を削除しました。"
   end
 
   private
